@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accès refusé</title>
+  <style>
+    :root {
+      --accent1: #6a5acd;
+      --accent2: #8a7fff;
+      --error: #ff5f6d;
+      --text: #ffffff;
+      --bg: #0c0b1c;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Particules */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      animation: floatParticle linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) scale(0.3);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Icône */
+    .icon {
+      font-size: 100px;
+      color: var(--error);
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(255,95,109,0.5);
+      animation: pulseIcon 1.5s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes pulseIcon {
+      0% { transform: scale(0.95); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.9; }
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(120,100,255,0.4);
+      animation: glowText 2s ease-in-out infinite alternate;
+      margin-bottom: 10px;
+      z-index: 2;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 15px rgba(100,80,255,0.5); }
+      to { text-shadow: 0 0 35px rgba(160,140,255,1); }
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-top: 0;
+      opacity: 0.9;
+      line-height: 1.5;
+      max-width: 380px;
+      z-index: 2;
+    }
+
+    .btn {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      border-radius: 14px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 20px rgba(110,90,255,0.3);
+      transition: all 0.25s ease;
+      animation: pulseBtn 3s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 28px rgba(140,120,255,0.5);
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Particules générées dynamiquement -->
+  <script>
+    const numParticles = 120; // doublé le nombre pour plus de densité
+    for (let i = 0; i < numParticles; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      const size = Math.random() * 8 + 3; // tailles plus variées et visibles
+      p.style.width = p.style.height = size + "px";
+      p.style.left = Math.random() * 100 + "%";
+      p.style.top = Math.random() * 100 + "%";
+      p.style.animationDuration = 8 + Math.random() * 10 + "s";
+      p.style.animationDelay = Math.random() * -10 + "s";
+      document.body.appendChild(p);
+    }
+  </script>
+
+  <!-- Contenu central -->
+  <div class="icon">🚫</div>
+  <h1>Accès refusé</h1>
+  <p>Connectez-vous pour continuer.</p>
+  <a href="/auth" class="btn">Se connecter</a>
+</body>
+</html>

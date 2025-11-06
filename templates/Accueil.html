@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChezRheyy - Accueil</title>
+  <style>
+    /* === Reset & Global === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: #0b0b14; color: white; }
+
+    /* === Canvas background === */
+    canvas#bgCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+
+    /* === Main content === */
+    .main {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      background: linear-gradient(90deg, #8b7fff, #b095ff, #8b7fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(155,135,255,0.4);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #b8b8c8;
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+
+    .btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(90deg, #8b7fff, #a386ff);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 0 15px rgba(139,124,255,0.4);
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(155,135,255,0.6);
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px rgba(139,124,255,0.5); }
+      50% { text-shadow: 0 0 25px rgba(155,135,255,1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      color: #7d7d8a;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="main">
+    <h1>ChezRheyy</h1>
+    <p>Bienvenue chez ChezRheyy, Vous l'attendiez, nous voilà.</p>
+    <div class="btns">
+      <button class="btn" id="loginBtn">Se connecter</button>
+      <button class="btn" id="stockBtn">Voir le stock</button>
+    </div>
+  </div>
+
+  <footer>© 2025 ChezRheyy. Tous droits réservés.</footer>
+
+  <script src="/static/acceuil.js"></script>
+</body>
+</html>
